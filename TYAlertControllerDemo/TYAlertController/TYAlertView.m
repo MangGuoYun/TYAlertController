@@ -219,6 +219,7 @@
         button.layer.borderColor = action.borderColor.CGColor;
         button.layer.borderWidth = action.borderWidth;
     }
+    if (action.textColor) [button setTitleColor:action.textColor forState:UIControlStateNormal];
     [button setTitle:action.title forState:UIControlStateNormal];
     button.titleLabel.font = _buttonFont;
     button.backgroundColor = [self buttonBgColorWithStyle:action.style];
