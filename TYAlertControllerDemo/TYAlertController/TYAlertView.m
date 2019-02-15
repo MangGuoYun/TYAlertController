@@ -50,7 +50,7 @@
 
 // text content View
 @property (nonatomic, weak) UIView *textContentView;
-@property (nonatomic, weak) UILabel *titleLable;
+@property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UILabel *messageLabel;
 
 @property (nonatomic, weak) UIView *textFieldContentView;
@@ -104,7 +104,7 @@
 {
     if (self = [self init]) {
         
-        _titleLable.text = title;
+        _titleLabel.text = title;
         _messageLabel.text = message;
         
     }
@@ -191,7 +191,7 @@
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
     titleLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
     [_textContentView addSubview:titleLabel];
-    _titleLable = titleLabel;
+    _titleLabel = titleLabel;
     
     UILabel *messageLabel = [[UILabel alloc]init];
     messageLabel.numberOfLines = 0;
@@ -215,6 +215,10 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.clipsToBounds = YES;
     button.layer.cornerRadius = _buttonCornerRadius;
+    if (action.borderColor) {
+        button.layer.borderColor = action.borderColor.CGColor;
+        button.layer.borderWidth = action.borderWidth;
+    }
     [button setTitle:action.title forState:UIControlStateNormal];
     button.titleLabel.font = _buttonFont;
     button.backgroundColor = [self buttonBgColorWithStyle:action.style];
@@ -305,17 +309,17 @@
 
 - (void)layoutTextLabels
 {
-    if (!_titleLable.translatesAutoresizingMaskIntoConstraints && !_messageLabel.translatesAutoresizingMaskIntoConstraints) {
+    if (!_titleLabel.translatesAutoresizingMaskIntoConstraints && !_messageLabel.translatesAutoresizingMaskIntoConstraints) {
         // layout done
         return;
     }
     // title
-    _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstraintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edgeInset:UIEdgeInsetsZero];
+    _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [_textContentView addConstraintWithView:_titleLabel topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edgeInset:UIEdgeInsetsZero];
     
     // message
     _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstraintWithTopView:_titleLable toBottomView:_messageLabel constant:_textLabelSpace];
+    [_textContentView addConstraintWithTopView:_titleLabel toBottomView:_messageLabel constant:_textLabelSpace];
     [_textContentView addConstraintWithView:_messageLabel topView:nil leftView:_textContentView bottomView:_textContentView rightView:_textContentView edgeInset:UIEdgeInsetsZero];
 }
 

@@ -21,13 +21,15 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) TYAlertActionStyle style;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic, strong)UIColor *borderColor;
+@property(nonatomic, assign)CGFloat borderWidth;
 
 @end
 
 
 @interface TYAlertView : UIView
 
-@property (nonatomic, weak, readonly) UILabel *titleLable;
+@property (nonatomic, weak, readonly) UILabel *titleLabel;
 @property (nonatomic, weak, readonly) UILabel *messageLabel;
 
 // alertView textfield array
