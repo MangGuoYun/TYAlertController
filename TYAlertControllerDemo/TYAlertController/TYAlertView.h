@@ -48,6 +48,7 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property (nonatomic, assign) CGFloat buttonSpace;
 @property (nonatomic, assign) CGFloat buttonContentViewEdge;
 @property (nonatomic, assign) CGFloat buttonContentViewTop;
+@property (nonatomic, assign) CGFloat buttonContentViewBottom;
 @property (nonatomic, assign) CGFloat buttonCornerRadius;
 @property (nonatomic, strong) UIFont *buttonFont;
 @property (nonatomic, strong) UIColor *buttonDefaultBgColor;

@@ -85,6 +85,7 @@
 - (IBAction)showActionSheetAction:(id)sender {
     
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:@"TYAlertView" message:@"This is a message, the alert view style is actionsheet. "];
+    alertView.buttonContentViewBottom = 100;
     
     [alertView addAction:[TYAlertAction actionWithTitle:@"默认2" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
         NSLog(@"%@",action.title);
