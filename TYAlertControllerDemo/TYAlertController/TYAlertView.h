@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 @property(nonatomic, strong)UIColor *borderColor;
 @property(nonatomic, assign)CGFloat borderWidth;
 @property(nonatomic, strong)UIColor *textColor;
+@property(nonatomic, strong)UIColor *backgroundColor;
 
 @end
 

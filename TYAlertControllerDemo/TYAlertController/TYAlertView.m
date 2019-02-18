@@ -223,6 +223,7 @@
     [button setTitle:action.title forState:UIControlStateNormal];
     button.titleLabel.font = _buttonFont;
     button.backgroundColor = [self buttonBgColorWithStyle:action.style];
+    if (action.backgroundColor) button.backgroundColor = action.backgroundColor;
     button.enabled = action.enabled;
     button.tag = kButtonTagOffset + _buttons.count;
     button.translatesAutoresizingMaskIntoConstraints = NO;
